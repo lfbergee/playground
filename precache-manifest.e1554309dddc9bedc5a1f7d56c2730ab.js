@@ -24,8 +24,8 @@ self.__precacheManifest = [
     "url": "/playground/static/js/5.6da69666.chunk.js"
   },
   {
-    "revision": "c1325edbc621906841c0",
-    "url": "/playground/static/js/main.c1325edb.chunk.js"
+    "revision": "0b74bab32b4b0bb9704f",
+    "url": "/playground/static/js/main.0b74bab3.chunk.js"
   },
   {
     "revision": "16ce3cdde77dca574563",
@@ -44,7 +44,7 @@ self.__precacheManifest = [
     "url": "/playground/static/media/bg.9d893a1e.jpg"
   },
   {
-    "revision": "906b08f45e81d7c8e06fca3686bb3f82",
+    "revision": "9112a14d05bd3e175f064a3d3a7bcdd7",
     "url": "/playground/index.html"
   }
 ];
