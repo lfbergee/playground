@@ -1,10 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Typist from "react-typist";
 import { Slide } from "../components";
 import { GridRow, GridCol, List, ListItem } from "../baseComponents";
 import bg from "./bg.png";
+import me from "./me.jpg";
 
 const Card = styled.div`
+  overflow: hidden;
   border: 8px solid yellow;
   border-radius: 4px;
   height: 600px;
@@ -46,7 +49,7 @@ const Title = styled.div`
   bottom: 0;
   left: 0;
   right: 0;
-  height: 60px;
+  height: 100px;
   background-color: darkslategray;
   font-size: 40px;
   display: flex;
@@ -56,6 +59,7 @@ const Title = styled.div`
 `;
 
 const Star = styled.div`
+  z-index: 1;
   background: yellowgreen;
   width: 80px;
   height: 80px;
@@ -77,6 +81,7 @@ const Star = styled.div`
 `;
 
 const Developer = styled.aside`
+  z-index: 2;
   position: absolute;
   top: 50px;
   left: 30px;
@@ -93,13 +98,36 @@ const Box = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
   color: white;
   position: absolute;
-  bottom: 0;
-  width: 100%;
+  bottom: -25px;
+  left: -20px;
+  width: 110%;
+  transform: rotate(-7deg);
+  padding-bottom: 35px;
 `;
 
 const Heading = styled.h2`
-    text-align: center;
-`
+  text-align: center;
+`;
+
+const Me = styled.div`
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url(${me});
+  background-repeat: no-repeat;
+`;
+
+const FunFact = styled.aside`
+  position: absolute;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  color: yellow;
+  font-weight: bolder;
+  text-shadow: 0 0 3px #ff0000;
+  background-color: rgba(0, 0, 0, 0.8);
+`;
 
 const PlayCard = () => {
   const [flipped, flipCard] = React.useState(false);
@@ -111,16 +139,47 @@ const PlayCard = () => {
             <Front flipped={flipped}>
               <Star />
               <Developer>Front end developer</Developer>
-              <Title>Leiv Fredrik Berge</Title>
+              <Me />
+              <Title>
+                {!flipped && (
+                  <Typist>
+                    <Typist.Delay ms={500} />
+                    <span>Leiv Fredhuihn B</span>
+                    <Typist.Backspace count={11} delay={200} />
+                    <span>Fredrik Berge</span>
+                  </Typist>
+                )}
+              </Title>
             </Front>
             <Backside flipped={flipped}>
+              <FunFact>
+                <iframe
+                  title="video"
+                  width="400"
+                  height="225"
+                  src="https://www.youtube.com/embed/TBa1p2YJwzQ"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                />
+                <Heading>Have driven a real car in VR</Heading>
+              </FunFact>
               <Box>
-                <Heading>About me</Heading>
-                <List>
-                  <ListItem customDot="fire">Javascript all the things</ListItem>
-                  <ListItem customDot="fire">React & Node.js</ListItem>
-                  <ListItem customDot="fire">Wierd mechanical keyboards</ListItem>
-                </List>
+                {flipped && (
+                  <Typist>
+                    <Typist.Delay ms={500} />
+                    <Heading>About me</Heading>
+                    <List>
+                      <ListItem customDot="fire">
+                        Javascript all the things
+                      </ListItem>
+                      <ListItem customDot="fire">React & Node.js</ListItem>
+                      <ListItem customDot="fire">
+                        Wierd mechanical keyboards
+                      </ListItem>
+                    </List>
+                  </Typist>
+                )}
               </Box>
             </Backside>
           </Card>
