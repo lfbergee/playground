@@ -26,6 +26,7 @@ const Immer = React.lazy(() => import("./slides/immer/Immer"));
 const CustomHooks = React.lazy(() =>
   import("./slides/customHooks/CustomHooks")
 );
+const PlayCard = React.lazy(() => import("./playCard/PlayCard"));
 
 const Routes = () => (
   <Suspense fallback={<FullScreenSpinner />}>
@@ -37,6 +38,7 @@ const Routes = () => (
     <Route exact path="/hooks" render={() => <Hooks />} />
     <Route exact path="/Immer" render={() => <Immer />} />
     <Route exact path="/custom-hooks" render={() => <CustomHooks />} />
+    <Route exact path="/play-card" render={() => <PlayCard />} />
   </Suspense>
 );
 
